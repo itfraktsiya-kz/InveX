@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InveX | Платформа для стартапов и инвесторов</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Кнопка для открытия сайдбара когда он скрыт -->
+    <button class="collapsed-menu-button" id="collapsedMenuButton">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Оверлей для мобильной навигации -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Навигационная панель -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <!-- Логотип увеличен до размера как название -->
+                <img src="https://i.ibb.co.com/zhJH2V4K/removebg-preview.png" alt="InveX Logo" class="logo-image">
+                <h1>In<span class="logo-accent">veX</span></h1>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        
+        <div class="nav-links">
+            <a href="#" class="nav-link active" data-page="home">
+                <i class="fas fa-home"></i>
+                <span data-translate="home">Главная</span>
+            </a>
+            <a href="#" class="nav-link" data-page="catalog">
+                <i class="fas fa-th-large"></i>
+                <span data-translate="catalog">Каталог стартапов</span>
+            </a>
+            <a href="#" class="nav-link" data-page="publish">
+                <i class="fas fa-plus-circle"></i>
+                <span data-translate="publish">Опубликовать стартап</span>
+            </a>
+            <a href="#" class="nav-link" data-page="investors">
+                <i class="fas fa-chart-line"></i>
+                <span data-translate="investors">Инвесторам</span>
+            </a>
+            <a href="#" class="nav-link" data-page="learning">
+                <i class="fas fa-graduation-cap"></i>
+                <span data-translate="learning">Стартап-обучение</span>
+            </a>
+            <a href="#" class="nav-link" data-page="dashboard">
+                <i class="fas fa-user-circle"></i>
+                <span data-translate="dashboard">Личный кабинет</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-footer">
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="kz">🇰🇿 Қазақша</option>
+                    <option value="en">🇺🇸 English</option>
+                </select>
+            </div>
+            
+            <div class="auth-buttons" id="authButtons">
+                <button class="btn btn-outline" id="loginBtn" data-translate="login">Вход</button>
+                <button class="btn btn-primary" id="registerBtn" data-translate="register">Регистрация</button>
+            </div>
+            
+            <div class="user-menu hidden" id="userMenu">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="userEmail">user@example.com</span>
+                </div>
+                <button class="btn btn-outline btn-small" id="logoutBtn" data-translate="logout">Выйти</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content" id="mainContent">
+        <!-- Заголовок страницы -->
+        <header class="page-header">
+            <!-- Левая часть: кнопка меню и заголовок -->
+            <div class="page-title-wrapper">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h2 class="page-title" id="pageTitle" data-translate="home">Главная</h2>
+            </div>
+            
+            <!-- Правая часть: имя пользователя, поиск и кнопка темы -->
+            <div class="header-right-section">
+                <div class="user-name-display" id="userNameDisplay">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="headerUserName">Гость</span>
+                </div>
+                
+                <div class="header-actions-group">
+                    <div class="search-box" id="searchBox">
+                        <i class="fas fa-search"></i>
+                        <input type="text" data-translate-placeholder="search_placeholder" placeholder="Поиск стартапов..." id="searchInput">
+                    </div>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Контейнер для контента страниц -->
+        <div class="page-content">
+            <!-- Страница: Главная -->
+            <div class="page active" id="homePage">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1 data-translate="hero_title">Соединяем стартапы с инвесторами</h1>
+                        <p class="hero-subtitle" data-translate="hero_subtitle">Платформа для представления инновационных проектов и поиска инвестиций</p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large" id="exploreStartupsBtn">
+                                <i class="fas fa-chart-line"></i>
+                                <span data-translate="explore_btn">Исследовать стартапы</span>
+                            </button>
+                            <button class="btn btn-outline btn-large" id="publishStartupBtn">
+                                <i class="fas fa-plus"></i>
+                                <span data-translate="publish_btn">Опубликовать проект</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalStartups">0</div>
+                            <div class="stat-label" data-translate="stats_startups">Стартапов</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalMentors">0</div>
+                            <div class="stat-label" data-translate="stats_mentors">Менторов</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalDeals">0</div>
+                            <div class="stat-label" data-translate="stats_deals">Успешных сделок</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок ТОП проектов по рейтингу -->
+                <div class="section">
+                    <h3 class="section-title" data-translate="top_projects">Топ проектов по рейтингу</h3>
+                    <div class="startup-grid" id="topRatedStartups">
+                        <!-- Карточки загружаются через JS -->
+                    </div>
+                </div>
+
+                <!-- Блок ТОП лайков за неделю -->
+                <div class="section">
+                    <h3 class="section-title" data-translate="top_likes">Топ лайков за неделю</h3>
+                    <div class="startup-grid" id="topLikedStartups">
+                        <!-- Карточки загружаются через JS -->
+                    </div>
+                </div>
+
+                <!-- Блок ТОП менторов -->
+                <div class="section">
+                    <h3 class="section-title" data-translate="top_mentors">Топ менторов</h3>
+                    <div class="mentors-grid" id="topMentorsGrid">
+                        <!-- Карточки менторов загружаются через JS -->
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title" data-translate="latest_startups">Последние стартапы</h3>
+                    <div class="startup-grid" id="latestStartups">
+                        <!-- Карточки загружаются через JS -->
+                    </div>
+                    <div class="section-footer">
+                        <button class="btn btn-text" id="viewAllStartups">
+                            <span data-translate="view_all">Смотреть все стартапы</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title" data-translate="featured_projects">Рекомендуемые проекты</h3>
+                    <div class="startup-grid" id="featuredStartups">
+                        <!-- Карточки загружаются через JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Страница: Каталог стартапов -->
+            <div class="page" id="catalogPage">
+                <div class="catalog-header">
+                    <h3 class="section-title" data-translate="catalog_title">Каталог стартапов</h3>
+                    <div class="catalog-controls">
+                        <div class="filters">
+                            <div class="filter-group">
+                                <label for="categoryFilter" data-translate="category_label">Категория:</label>
+                                <select id="categoryFilter" class="filter-select">
+                                    <option value="all" data-translate="all_categories">Все категории</option>
+                                    <option value="IT">IT</option>
+                                    <option value="AI">AI / Машинное обучение</option>
+                                    <option value="FinTech">FinTech</option>
+                                    <option value="EdTech">EdTech</option>
+                                    <option value="Health">Health / Медицина</option>
+                                    <option value="Eco">Экология</option>
+                                    <option value="Ecommerce">E-commerce</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="stageFilter" data-translate="stage_label">Стадия:</label>
+                                <select id="stageFilter" class="filter-select">
+                                    <option value="all" data-translate="all_stages">Все стадии</option>
+                                    <option value="idea">Идея</option>
+                                    <option value="mvp">MVP</option>
+                                    <option value="beta">Бета-версия</option>
+                                    <option value="ready">Готовый продукт</option>
+                                    <option value="scaling">Масштабирование</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-outline" id="applyFiltersBtn">
+                                <i class="fas fa-filter"></i>
+                                <span data-translate="apply_filters">Применить фильтры</span>
+                            </button>
+                            <button class="btn btn-text" id="resetFiltersBtn" data-translate="reset_filters">
+                                Сбросить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="startup-grid" id="catalogStartups">
+                    <!-- Карточки загружаются через JS -->
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn" id="prevPageBtn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="pagination-current">1</span>
+                    <button class="pagination-btn" id="nextPageBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Страница: Опубликовать стартап -->
+            <div class="page" id="publishPage">
+                <div class="publish-container">
+                    <h3 class="section-title" data-translate="publish_title">Опубликовать новый стартап</h3>
+                    <p class="section-subtitle" data-translate="publish_subtitle">Заполните форму, чтобы представить свой проект инвесторам</p>
+                    
+                    <form id="startupForm" class="startup-form">
+                        <div class="form-section">
+                            <h4 class="form-section-title" data-translate="basic_info">Основная информация</h4>
+                            
+                            <div class="form-group">
+                                <label for="startupName" data-translate="startup_name">Название стартапа *</label>
+                                <input type="text" id="startupName" required 
+                                       data-translate-placeholder="name_placeholder"
+                                       placeholder="Введите название вашего проекта">
+                                <div class="form-error" id="nameError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="startupGoal" data-translate="project_goal">Цель проекта *</label>
+                                <textarea id="startupGoal" rows="2" required 
+                                          data-translate-placeholder="goal_placeholder"
+                                          placeholder="Кратко опишите цель вашего проекта (1-2 предложения)"></textarea>
+                                <div class="form-error" id="goalError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="startupDescription" data-translate="full_description">Полное описание *</label>
+                                <textarea id="startupDescription" rows="5" required 
+                                          data-translate-placeholder="description_placeholder"
+                                          placeholder="Подробное описание проекта, проблема, решение, уникальность"></textarea>
+                                <div class="form-error" id="descriptionError"></div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="startupCategory" data-translate="category_label">Категория *</label>
+                                    <select id="startupCategory" required>
+                                        <option value="" data-translate="select_category">Выберите категорию</option>
+                                        <option value="IT">IT</option>
+                                        <option value="AI">AI / Машинное обучение</option>
+                                        <option value="FinTech">FinTech</option>
+                                        <option value="EdTech">EdTech</option>
+                                        <option value="Health">Health / Медицина</option>
+                                        <option value="Eco">Экология</option>
+                                        <option value="Ecommerce">E-commerce</option>
+                                        <option value="Other">Другое</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="startupStage" data-translate="project_stage">Стадия проекта *</label>
+                                    <select id="startupStage" required>
+                                        <option value="" data-translate="select_stage">Выберите стадию</option>
+                                        <option value="idea">Идея</option>
+                                        <option value="mvp">MVP</option>
+                                        <option value="beta">Бета-версия</option>
+                                        <option value="ready">Готовый продукт</option>
+                                        <option value="scaling">Масштабирование</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h4 class="form-section-title" data-translate="team_finance_info">Команда и финансы</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="teamSize" data-translate="team_size">Размер команды</label>
+                                    <input type="number" id="teamSize" min="1" 
+                                           placeholder="Количество человек в команде">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="projectCost" data-translate="project_cost">Стоимость проекта ($)</label>
+                                    <input type="number" id="projectCost" min="0" step="1000" 
+                                           placeholder="Общая стоимость проекта">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="monthlyExpenses" data-translate="monthly_expenses">Ежемесячные расходы ($)</label>
+                                    <input type="number" id="monthlyExpenses" min="0" step="100" 
+                                           placeholder="Месячные затраты">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="investmentAsked" data-translate="investment_asked">Запрашиваемые инвестиции ($) *</label>
+                                    <!-- УБРАН АТРИБУТ min="0" - теперь можно вводить любые числа -->
+                                    <input type="number" id="investmentAsked" step="1000" required 
+                                           placeholder="Сумма инвестиций">
+                                    <div class="form-error" id="investmentError"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h4 class="form-section-title" data-translate="market_traction">Рынок и тракшн</h4>
+                            
+                            <div class="form-group">
+                                <label for="marketSize" data-translate="market_size">Размер рынка</label>
+                                <input type="text" id="marketSize" 
+                                       placeholder="Например: $10B, Средний рынок">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="targetAudience" data-translate="target_audience">Целевая аудитория</label>
+                                <textarea id="targetAudience" rows="2" 
+                                          placeholder="Опишите вашу целевую аудиторию"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="region" data-translate="region">Регион</label>
+                                <input type="text" id="region" 
+                                       placeholder="Например: СНГ, Европа, Глобальный">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="tractionUsers" data-translate="traction_users">Пользователи/Клиенты</label>
+                                    <input type="number" id="tractionUsers" min="0" 
+                                           placeholder="Количество пользователей">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="tractionRevenue" data-translate="traction_revenue">Выручка ($)</label>
+                                    <input type="number" id="tractionRevenue" min="0" 
+                                           placeholder="Месячная/годовая выручка">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h4 class="form-section-title" data-translate="links_contacts">Ссылки и контакты</h4>
+                            
+                            <div class="form-group">
+                                <label for="startupGithub" data-translate="github_link">GitHub репозиторий</label>
+                                <input type="url" id="startupGithub" 
+                                       data-translate-placeholder="github_placeholder"
+                                       placeholder="https://github.com/ваш-проект">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="startupWebsite" data-translate="website_link">Demo / Веб-сайт</label>
+                                <input type="url" id="startupWebsite" 
+                                       data-translate-placeholder="website_placeholder"
+                                       placeholder="https://ваш-сайт.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="startupEmail" data-translate="contact_email">Контактный email *</label>
+                                <input type="email" id="startupEmail" required 
+                                       data-translate-placeholder="email_placeholder"
+                                       placeholder="contact@ваш-стартап.com">
+                                <div class="form-error" id="emailError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telegramContact" data-translate="telegram_contact">Telegram для связи *</label>
+                                <input type="text" id="telegramContact" required 
+                                       placeholder="@username или ссылка"
+                                       data-translate-placeholder="telegram_placeholder">
+                                <div class="form-error" id="telegramError"></div>
+                                <div class="form-hint" data-translate="telegram_hint">
+                                    Обязательное поле для связи инвесторов с вами
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large" id="submitStartupBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span data-translate="publish_startup">Опубликовать стартап</span>
+                            </button>
+                            <button type="button" class="btn btn-outline" id="saveDraftBtn" data-translate="save_draft">
+                                Сохранить как черновик
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Страница: Инвесторам -->
+            <div class="page" id="investorsPage">
+                <div class="investors-container">
+                    <h3 class="section-title" data-translate="investors_title">Инвесторам</h3>
+                    <p class="section-subtitle" data-translate="investors_subtitle">Как использовать платформу для поиска инвестиционных возможностей</p>
+                    
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4 data-translate="search_startups">Поиск стартапов</h4>
+                            <p data-translate="search_text">Используйте фильтры по категориям и стадиям для поиска проектов, соответствующих вашим инвестиционным критериям.</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                            <h4 data-translate="filtering">Фильтрация</h4>
+                            <p data-translate="filter_text">Отбирайте проекты по технологической сфере, стадии развития, географии и другим параметрам.</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4 data-translate="ai_matching">AI-мэтчинг</h4>
+                            <p data-translate="ai_matching_text">Наш ИИ автоматически подбирает проекты, соответствующие вашим инвестиционным интересам.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4 data-translate="investors_guide">Пошаговое руководство для инвесторов</h4>
+                        
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5 data-translate="step1_title">Зарегистрируйтесь как инвестор</h5>
+                                    <p data-translate="step1_text">Создайте аккаунт и укажите ваши инвестиционные интересы, бюджет и регионы.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5 data-translate="step2_title">Привяжите Telegram</h5>
+                                    <p data-translate="step2_text">Для связи со стартапами необходимо привязать Telegram аккаунт.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5 data-translate="step3_title">Изучите каталог стартапов</h5>
+                                    <p data-translate="step3_text">Просматривайте проекты, используя поиск, фильтры и AI-рекомендации.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5 data-translate="step4_title">Свяжитесь через Telegram</h5>
+                                    <p data-translate="step4_text">Нажмите "Написать в Telegram" на странице стартапа для прямого общения с основателем.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок менторов для инвесторов -->
+                    <div class="mentors-section">
+                        <h4 data-translate="expert_mentors">Экспертные менторы</h4>
+                        <p data-translate="expert_mentors_desc">Свяжитесь с опытными менторами для консультации по инвестициям</p>
+                        <div class="mentors-grid" id="investorsMentorsGrid">
+                            <!-- Карточки менторов загружаются через JS -->
+                        </div>
+                    </div>
+                    
+                    <div class="benefits-section">
+                        <h4 data-translate="benefits_title">Преимущества платформы для инвесторов</h4>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="benefit1">Прямой доступ к инновационным проектам</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="benefit2">AI-анализ и оценка проектов</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="benefit3">Прямая связь с основателями через Telegram</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="benefit4">Фильтрация по инвестиционным критериям</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="benefit5">Нет посредников, общение напрямую</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Страница: Стартап-обучение -->
+            <div class="page" id="learningPage">
+                <div class="learning-container">
+                    <div class="learning-header">
+                        <h3 class="section-title" data-translate="learning_title">Стартап-обучение</h3>
+                        <p class="section-subtitle" data-translate="learning_subtitle">Пошаговое руководство по созданию и развитию вашего стартапа</p>
+                    </div>
+
+                    <!-- Блок "Как работает обучение" -->
+                    <div class="how-it-works">
+                        <h4 class="section-title" data-translate="how_it_works">Как работает обучение</h4>
+                        <div class="works-steps">
+                            <div class="work-step">
+                                <div class="work-step-number">1</div>
+                                <div class="work-step-content">
+                                    <h5 data-translate="work_step1">Выберите этап</h5>
+                                    <p data-translate="work_step1_desc">Начните с любого этапа в зависимости от текущей стадии вашего проекта</p>
+                                </div>
+                            </div>
+                            <div class="work-step">
+                                <div class="work-step-number">2</div>
+                                <div class="work-step-content">
+                                    <h5 data-translate="work_step2">Изучите материалы</h5>
+                                    <p data-translate="work_step2_desc">Получите доступ к практическим руководствам, шаблонам и примерам</p>
+                                </div>
+                            </div>
+                            <div class="work-step">
+                                <div class="work-step-number">3</div>
+                                <div class="work-step-content">
+                                    <h5 data-translate="work_step3">Примените на практике</h5>
+                                    <p data-translate="work_step3_desc">Выполняйте задания и получайте обратную связь через Telegram-бота</p>
+                                </div>
+                            </div>
+                            <div class="work-step">
+                                <div class="work-step-number">4</div>
+                                <div class="work-step-content">
+                                    <h5 data-translate="work_step4">Найдите ментора</h5>
+                                    <p data-translate="work_step4_desc">Получите помощь опытного ментора через Telegram</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Learning Grid (9 этапов обучения) -->
+                    <div class="learning-grid">
+                        <!-- Шаг 1: Идея -->
+                        <div class="learning-card" data-stage="idea">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">💡</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_idea">Идея</h4>
+                                        <span class="learning-command">/idea</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="idea_desc">Проблемы, Идеи, Оценка</p>
+                                    <div class="learning-status">
+                                        <span class="status-label" data-translate="initial_stage">Начальный этап</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 2: Проверка -->
+                        <div class="learning-card" data-stage="check">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">✅</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_check">Проверка</h4>
+                                        <span class="learning-command">/check</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="check_desc">Аудитория, Опрос, Конкуренты</p>
+                                    <div class="learning-status">
+                                        <span class="status-label active" data-translate="active">Активный</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 3: MVP -->
+                        <div class="learning-card" data-stage="mvp">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">🚀</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_mvp">MVP</h4>
+                                        <span class="learning-command">/mvp</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="mvp_desc">Минимум, Ценность, Тест</p>
+                                    <div class="learning-status">
+                                        <span class="status-label upcoming" data-translate="next">Следующий</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 4: Тестирование -->
+                        <div class="learning-card" data-stage="test">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">🧪</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_test">Тестирование</h4>
+                                        <span class="learning-command">/test</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="test_desc">Аудитория, Обратная связь, Анализ</p>
+                                    <div class="learning-status">
+                                        <span class="status-label upcoming" data-translate="next">Следующий</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 5: Разработка -->
+                        <div class="learning-card" data-stage="dev">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">🛠</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_dev">Разработка</h4>
+                                        <span class="learning-command">/dev</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="dev_desc">UX/UI, Функции, Безопасность</p>
+                                    <div class="learning-status">
+                                        <span class="status-label upcoming" data-translate="next">Следующий</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 6: Продвижение -->
+                        <div class="learning-card" data-stage="promo">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">📣</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_promo">Продвижение</h4>
+                                        <span class="learning-command">/promo</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="promo_desc">Соцсети, Кейсы, Контакты</p>
+                                    <div class="learning-status">
+                                        <span class="status-label upcoming" data-translate="next">Следующий</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 7: Инвестиции -->
+                        <div class="learning-card" data-stage="funding">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">💰</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_funding">Инвестиции</h4>
+                                        <span class="learning-command">/funding</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="funding_desc">Питч, Pitch Deck, Метрики</p>
+                                    <div class="learning-status">
+                                        <span class="status-label upcoming" data-translate="next">Следующий</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 8: Масштабирование -->
+                        <div class="learning-card" data-stage="scale">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">📈</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_scale">Масштабирование</h4>
+                                        <span class="learning-command">/scale</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="scale_desc">Автоматизация, Рост, Стратегия</p>
+                                    <div class="learning-status">
+                                        <span class="status-label upcoming" data-translate="next">Следующий</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 9: Термины -->
+                        <div class="learning-card" data-stage="term">
+                            <div class="learning-card-inner">
+                                <div class="learning-icon">📚</div>
+                                <div class="learning-content">
+                                    <div class="learning-header">
+                                        <h4 class="learning-title" data-translate="step_term">Термины</h4>
+                                        <span class="learning-command">/term</span>
+                                    </div>
+                                    <p class="learning-description" data-translate="term_desc">Словарь, Аббревиатуры, Сленг</p>
+                                    <div class="learning-status">
+                                        <span class="status-label upcoming" data-translate="next">Следующий</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Telegram-бот секция -->
+                    <div class="telegram-section">
+                        <div class="telegram-card">
+                            <div class="telegram-icon-wrapper">
+                                <div class="telegram-icon">
+                                    <i class="fab fa-telegram"></i>
+                                </div>
+                            </div>
+                            <div class="telegram-content">
+                                <h4 data-translate="telegram_title">Начните обучение в Telegram-боте</h4>
+                                <p data-translate="telegram_text">Получите доступ ко всем материалам и проходите обучение шаг за шагом в удобном формате. Используйте команды для каждого этапа.</p>
+                                <a href="https://t.me/EduSratup_bot" target="_blank" class="btn btn-primary btn-large telegram-btn" id="telegramBotLink">
+                                    <i class="fab fa-telegram"></i>
+                                    <span data-translate="go_to_bot">Перейти в Telegram-бот</span>
+                                </a>
+                                <div class="telegram-stats">
+                                    <div class="telegram-stat">
+                                        <span class="stat-number">9</span>
+                                        <span class="stat-label" data-translate="steps_count">этапов</span>
+                                    </div>
+                                    <div class="telegram-stat">
+                                        <span class="stat-number">24/7</span>
+                                        <span class="stat-label" data-translate="access_24_7">доступ</span>
+                                    </div>
+                                    <div class="telegram-stat">
+                                        <span class="stat-number">AI</span>
+                                        <span class="stat-label" data-translate="ai_assistant">помощник</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Секция курсов -->
+                    <div class="courses-section">
+                        <h4 class="section-title" data-translate="courses_title">Курсы для стартаперов</h4>
+                        <p class="section-subtitle" data-translate="courses_subtitle">Лучшие обучающие материалы на русском и английском языках</p>
+                        
+                        <div class="courses-filters">
+                            <button class="course-filter-btn active" data-lang="all" data-translate="all_courses">
+                                Все курсы
+                            </button>
+                            <button class="course-filter-btn" data-lang="ru" data-translate="russian_courses">
+                                Русские курсы
+                            </button>
+                            <button class="course-filter-btn" data-lang="en" data-translate="english_courses">
+                                Английские курсы
+                            </button>
+                        </div>
+                        
+                        <div class="courses-grid" id="coursesGrid">
+                            <!-- Карточки курсов загружаются через JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Доступные менторы -->
+                    <div class="available-mentors">
+                        <h4 data-translate="available_mentors">Доступные менторы</h4>
+                        <p data-translate="available_mentors_desc">Свяжитесь с опытными менторами для помощи в развитии вашего проекта</p>
+                        <div class="mentors-grid" id="availableMentorsGrid">
+                            <!-- Карточки менторов загружаются через JS -->
+                        </div>
+                    </div>
+
+                    <!-- AI Matching секция -->
+                    <div class="ai-matching-section">
+                        <div class="ai-matching-card">
+                            <div class="ai-matching-content">
+                                <div class="ai-matching-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="ai-matching-text">
+                                    <h4 data-translate="ai_matching_title">AI-рекомендации</h4>
+                                    <p data-translate="ai_matching_description">Получите персонализированные рекомендации по курсам и менторам на основе ваших интересов и стадии проекта</p>
+                                    <button class="btn btn-primary" id="getRecommendationsBtn" data-translate="get_recommendations">
+                                        Получить рекомендации
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Страница: Личный кабинет -->
+            <div class="page" id="dashboardPage">
+                <div class="dashboard-container">
+                    <h3 class="section-title" data-translate="dashboard_title">Личный кабинет</h3>
+                    
+                    <div class="dashboard-content">
+                        <div class="dashboard-sidebar">
+                            <div class="user-profile-card">
+                                <div class="profile-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="profile-info">
+                                    <h4 id="dashboardUserName">Гость</h4>
+                                    <p id="dashboardUserEmail">Не авторизован</p>
+                                    <div class="profile-stats">
+                                        <div class="profile-stat">
+                                            <div class="stat-value" id="publishedCount">0</div>
+                                            <div class="stat-label" data-translate="published">Опубликовано</div>
+                                        </div>
+                                        <div class="profile-stat">
+                                            <div class="stat-value" id="draftsCount">0</div>
+                                            <div class="stat-label" data-translate="drafts">Черновики</div>
+                                        </div>
+                                        <div class="profile-stat">
+                                            <div class="stat-value" id="likesCount">0</div>
+                                            <div class="stat-label" data-translate="likes">Лайки</div>
+                                        </div>
+                                    </div>
+                                    <div class="telegram-status" id="telegramStatus">
+                                        <i class="fab fa-telegram"></i>
+                                        <span id="telegramStatusText" data-translate="telegram_not_linked">Telegram не привязан</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="dashboard-menu">
+                                <button class="dashboard-menu-btn active" data-tab="myStartups">
+                                    <i class="fas fa-rocket"></i>
+                                    <span data-translate="my_startups">Мои стартапы</span>
+                                </button>
+                                <button class="dashboard-menu-btn" data-tab="myActivity">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span data-translate="my_activity">Моя активность</span>
+                                </button>
+                                <button class="dashboard-menu-btn" data-tab="mentorship">
+                                    <i class="fas fa-user-tie"></i>
+                                    <span data-translate="mentorship">Менторство</span>
+                                </button>
+                                <button class="dashboard-menu-btn" data-tab="profile">
+                                    <i class="fas fa-user"></i>
+                                    <span data-translate="profile">Профиль</span>
+                                </button>
+                                <button class="dashboard-menu-btn" data-tab="settings">
+                                    <i class="fas fa-cog"></i>
+                                    <span data-translate="settings">Настройки</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-main">
+                            <!-- Вкладка: Мои стартапы -->
+                            <div class="dashboard-tab active" id="myStartupsTab">
+                                <div class="tab-header">
+                                    <h4 data-translate="my_startups">Мои стартапы</h4>
+                                    <button class="btn btn-primary" id="addNewStartupBtn">
+                                        <i class="fas fa-plus"></i>
+                                        <span data-translate="add_startup">Добавить стартап</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="my-startups-grid" id="myStartupsGrid">
+                                    <!-- Стартапы загружаются через JS -->
+                                </div>
+                                
+                                <div class="empty-state" id="emptyStartupsState">
+                                    <i class="fas fa-rocket"></i>
+                                    <h5 data-translate="no_startups">У вас пока нет стартапов</h5>
+                                    <p data-translate="no_startups_text">Опубликуйте свой первый проект, чтобы показать его инвесторам</p>
+                                    <button class="btn btn-primary" id="publishFirstStartupBtn" data-translate="publish_first_startup">
+                                        Опубликовать стартап
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Вкладка: Моя активность -->
+                            <div class="dashboard-tab" id="myActivityTab">
+                                <div class="tab-header">
+                                    <h4 data-translate="my_activity">Моя активность</h4>
+                                </div>
+                                
+                                <div class="activity-stats">
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="myLikesCount">0</div>
+                                        <div class="stat-label" data-translate="likes_given">Лайков поставлено</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="myCommentsCount">0</div>
+                                        <div class="stat-label" data-translate="comments_written">Комментариев написано</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="myProjectsLikes">0</div>
+                                        <div class="stat-label" data-translate="my_projects_likes">Лайки моих проектов</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-feed" id="activityFeed">
+                                    <h5 data-translate="recent_activity">Последняя активность</h5>
+                                    <div class="activity-list" id="activityList">
+                                        <!-- Активность загружается через JS -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Вкладка: Менторство -->
+                            <div class="dashboard-tab" id="mentorshipTab">
+                                <div class="tab-header">
+                                    <h4 data-translate="mentorship">Менторство</h4>
+                                </div>
+                                
+                                <div class="mentorship-status">
+                                    <div class="mentor-card">
+                                        <div class="mentor-avatar">
+                                            <i class="fas fa-user-tie"></i>
+                                        </div>
+                                        <div class="mentor-details">
+                                            <h5 id="mentorStatusTitle" data-translate="not_mentor">Вы не являетесь ментором</h5>
+                                            <p id="mentorStatusDescription" data-translate="become_mentor_desc">Станьте ментором и помогайте другим стартаперам</p>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" id="becomeMentorBtn" data-translate="become_mentor">
+                                        Стать ментором
+                                    </button>
+                                </div>
+                                
+                                <div class="mentorship-requests" id="mentorshipRequestsSection">
+                                    <h5 data-translate="mentorship_requests">Заявки на менторство</h5>
+                                    <div class="requests-list" id="mentorshipRequestsList">
+                                        <!-- Заявки загружаются через JS -->
+                                    </div>
+                                </div>
+                                
+                                <div class="my-mentees" id="myMenteesSection">
+                                    <h5 data-translate="my_mentees">Мои подопечные</h5>
+                                    <div class="mentees-list" id="myMenteesList">
+                                        <!-- Подопечные загружаются через JS -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Вкладка: Профиль -->
+                            <div class="dashboard-tab" id="profileTab">
+                                <div class="tab-header">
+                                    <h4 data-translate="profile_settings">Настройки профиля</h4>
+                                </div>
+                                
+                                <form id="profileForm" class="profile-form">
+                                    <div class="form-group">
+                                        <label for="profileName" data-translate="name">Имя</label>
+                                        <input type="text" id="profileName" 
+                                               data-translate-placeholder="enter_name"
+                                               placeholder="Введите ваше имя">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="profileEmail" data-translate="email">Email</label>
+                                        <input type="email" id="profileEmail" 
+                                               data-translate-placeholder="enter_email"
+                                               placeholder="Введите ваш email" disabled>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="profileBio" data-translate="about_me">О себе</label>
+                                        <textarea id="profileBio" rows="4" 
+                                                  data-translate-placeholder="about_placeholder"
+                                                  placeholder="Расскажите о себе, вашем опыте и интересах"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="profileRole" data-translate="role">Роль</label>
+                                        <select id="profileRole">
+                                            <option value="startup_owner" data-translate="role_founder">Основатель стартапа</option>
+                                            <option value="investor" data-translate="role_investor">Инвестор</option>
+                                            <option value="mentor" data-translate="role_mentor">Ментор</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="profileSkills" data-translate="skills">Навыки</label>
+                                        <input type="text" id="profileSkills" 
+                                               data-translate-placeholder="skills_placeholder"
+                                               placeholder="Введите ваши навыки через запятую">
+                                    </div>
+                                    
+                                    <div class="telegram-link-section" id="telegramLinkSection">
+                                        <h5 data-translate="telegram_link">Привязка Telegram</h5>
+                                        <div class="telegram-link-status" id="telegramLinkStatus">
+                                            <i class="fab fa-telegram"></i>
+                                            <span id="telegramLinkStatusText" data-translate="telegram_not_linked">Telegram не привязан</span>
+                                        </div>
+                                        <div class="telegram-username-input" id="telegramUsernameInput" style="display: none; margin-top: 10px;">
+                                            <input type="text" id="telegramUsername" placeholder="@username" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg-tertiary); color: var(--text-primary);">
+                                            <button type="button" class="btn btn-primary" id="saveTelegramUsername" style="margin-top: 10px;">
+                                                <i class="fab fa-telegram"></i>
+                                                <span>Сохранить</span>
+                                            </button>
+                                        </div>
+                                        <button type="button" class="btn btn-outline" id="linkTelegramBtn">
+                                            <i class="fab fa-telegram"></i>
+                                            <span data-translate="link_telegram">Привязать Telegram</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary" id="saveProfileBtn" data-translate="save_changes">
+                                        Сохранить изменения
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <!-- Вкладка: Настройки -->
+                            <div class="dashboard-tab" id="settingsTab">
+                                <div class="tab-header">
+                                    <h4 data-translate="settings">Настройки</h4>
+                                </div>
+                                
+                                <div class="settings-section">
+                                    <h5 data-translate="appearance">Внешний вид</h5>
+                                    <div class="settings-option">
+                                        <span data-translate="interface_theme">Тема интерфейса</span>
+                                        <div class="theme-options">
+                                            <button class="theme-option active" data-theme="dark" type="button">
+                                                <i class="fas fa-moon"></i>
+                                                <span data-translate="theme_dark">Тёмная</span>
+                                            </button>
+                                            <button class="theme-option" data-theme="light" type="button">
+                                                <i class="fas fa-sun"></i>
+                                                <span data-translate="theme_light">Светлая</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="settings-option">
+                                        <span data-translate="interface_language">Язык интерфейса</span>
+                                        <select id="dashboardLanguage">
+                                            <option value="ru" selected>Русский</option>
+                                            <option value="kz">Қазақша</option>
+                                            <option value="en">English</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="settings-section">
+                                    <h5 data-translate="notifications">Уведомления</h5>
+                                    
+                                    <div class="settings-option">
+                                        <span data-translate="email_notifications">Email уведомления</span>
+                                        <label class="switch">
+                                            <input type="checkbox" id="emailNotifications" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="settings-option">
+                                        <span data-translate="telegram_notifications">Telegram уведомления</span>
+                                        <label class="switch">
+                                            <input type="checkbox" id="telegramNotifications" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="settings-section">
+                                    <h5 data-translate="security">Безопасность</h5>
+                                    
+                                    <div class="form-group">
+                                        <label for="currentPassword" data-translate="current_password">Текущий пароль</label>
+                                        <input type="password" id="currentPassword" 
+                                               data-translate-placeholder="enter_current_password"
+                                               placeholder="Введите текущий пароль">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="newPassword" data-translate="new_password">Новый пароль</label>
+                                        <input type="password" id="newPassword" 
+                                               data-translate-placeholder="enter_new_password"
+                                               placeholder="Введите новый пароль">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="confirmPassword" data-translate="confirm_password">Подтвердите пароль</label>
+                                        <input type="password" id="confirmPassword" 
+                                               data-translate-placeholder="confirm_new_password"
+                                               placeholder="Подтвердите новый пароль">
+                                    </div>
+                                    
+                                    <button class="btn btn-primary" id="changePasswordBtn" type="button" data-translate="change_password">
+                                        Изменить пароль
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно деталей стартапа -->
+    <div class="modal" id="startupDetailModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="modalStartupName">Название стартапа</h3>
+                <button class="modal-close" id="modalDetailClose" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalDetailBody">
+                <!-- Контент загружается динамически -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно входа/регистрации -->
+    <div class="modal" id="authModal">
+        <div class="modal-content modal-auth">
+            <div class="modal-header">
+                <h3 id="authModalTitle" data-translate="login_title">Вход в аккаунт</h3>
+                <button class="modal-close" id="authModalClose" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login" type="button" data-translate="login">Вход</button>
+                    <button class="auth-tab" data-tab="register" type="button" data-translate="register">Регистрация</button>
+                </div>
+                
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginEmail" data-translate="email">Email</label>
+                        <input type="email" id="loginEmail" required 
+                               data-translate-placeholder="enter_email"
+                               placeholder="Введите ваш email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword" data-translate="password">Пароль</label>
+                        <input type="password" id="loginPassword" required 
+                               data-translate-placeholder="enter_password"
+                               placeholder="Введите пароль">
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="rememberMe">
+                            <span data-translate="remember_me">Запомнить меня</span>
+                        </label>
+                        <a href="#" class="forgot-password" data-translate="forgot_password">Забыли пароль?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" data-translate="login">
+                        Войти
+                    </button>
+                </form>
+                
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="registerName" data-translate="name">Имя</label>
+                        <input type="text" id="registerName" required 
+                               data-translate-placeholder="enter_name"
+                               placeholder="Введите ваше имя">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerEmail" data-translate="email">Email</label>
+                        <input type="email" id="registerEmail" required 
+                               data-translate-placeholder="enter_email"
+                               placeholder="Введите ваш email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPassword" data-translate="create_password">Пароль</label>
+                        <input type="password" id="registerPassword" required 
+                               data-translate-placeholder="create_password"
+                               placeholder="Создайте пароль">
+                        <div class="password-requirements" data-translate="password_requirements">
+                            Минимум 8 символов, заглавные и строчные буквы, цифры
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPasswordRegister" data-translate="confirm_password">Подтвердите пароль</label>
+                        <input type="password" id="confirmPasswordRegister" required 
+                               data-translate-placeholder="confirm_password"
+                               placeholder="Подтвердите пароль">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerRole" data-translate="role">Роль *</label>
+                        <select id="registerRole" required>
+                            <option value="" data-translate="select_role">Выберите роль</option>
+                            <option value="startup_owner" data-translate="role_founder">Основатель стартапа</option>
+                            <option value="investor" data-translate="role_investor">Инвестор</option>
+                            <option value="mentor" data-translate="role_mentor">Ментор</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" data-translate="register">
+                        Зарегистрироваться
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Контейнер для уведомлений -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <!-- Подключение JavaScript файлов -->
+    <script src="script.js"></script>
+    <script src="translations.js"></script>
+</body>
+</html>
